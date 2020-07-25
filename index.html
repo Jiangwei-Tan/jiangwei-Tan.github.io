@@ -152,6 +152,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Selenium定制启动chromedriver" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/">Selenium定制启动chromedriver</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/" class="archive-article-date">
+  	<time datetime="2020-07-25T09:21:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ChromeOptions"><a href="#ChromeOptions" class="headerlink" title="ChromeOptions"></a>ChromeOptions</h1><p>ChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：</p>
+<ul>
+<li><p>binary_location: 设置chrome二进制文件的位置</p>
+</li>
+<li><p>add_argument: 添加启动参数</p>
+</li>
+<li><p>add_extension,add_encoded_extension: 添加扩展应用</p>
+</li>
+<li><p>add_experimental_option: 添加实验性质的设置参数</p>
+</li>
+<li><p>debugger_address: 设置调试器的位置</p>
+</li>
+</ul>
+<h1 id="定制启动选项"><a href="#定制启动选项" class="headerlink" title="定制启动选项"></a>定制启动选项</h1><p>ChromeOptions提供的方法中，我们最常用的是： add_argument,add_expermental_option,add_extension&amp;add_encoded_extension</p>
+<h2 id="添加chrome启动参数"><a href="#添加chrome启动参数" class="headerlink" title="添加chrome启动参数"></a>添加chrome启动参数</h2><p>例如：</p>
+<pre><code>#启动时设置默认语言为中文 UTF-8
+from selenium import webdriver
+options = webdriver.ChromeOptions()
+options.add_argument(&apos;lan = zh_CN.UTF-8&apos;)
+driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</code></pre><p>最常用的应用场景是设置user-agent以用来模拟移动设备</p>
+<h2 id="修改chrome设置"><a href="#修改chrome设置" class="headerlink" title="修改chrome设置"></a>修改chrome设置</h2><p>例如：</p>
+<pre><code>#禁用图片加载
+from selenium import webdriver
+options = webdriver.ChromeOptions()
+options.add_expermental_option(&apos;perfs&apos;,{&apos;profile.default_content_settings.images&apos;: 2})
+driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</code></pre><p>更多实验参数可以访问<a href="https://sites.google.com/a/chromium.org/chromedriver/capabilities" target="_blank" rel="noopener">chromedriver官网</a></p>
+<h2 id="添加扩展"><a href="#添加扩展" class="headerlink" title="添加扩展"></a>添加扩展</h2><p>例如：</p>
+<pre><code>from selenium import webdriver
+options = webdriver.ChromeOptions()
+extension_path = r&apos;/extension/path&apos;
+options.add_extension(extension_path)
+driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
