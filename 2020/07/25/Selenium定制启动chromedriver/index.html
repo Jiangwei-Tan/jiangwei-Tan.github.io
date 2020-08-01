@@ -5,18 +5,18 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://jiangwei-Tan.github.io">
   <title>Selenium定制启动chromedriver | jiangwei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="ChromeOptionsChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：  binary_location: 设置chrome二进制文件的位置  add_argument: 添加启动参数  add_extension,add_encoded_extension: 添加扩展应用  add_experimenta">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Selenium定制启动chromedriver">
-<meta property="og:url" content="http://yoursite.com/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/index.html">
+<meta property="og:url" content="http://jiangwei-tan.github.io/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/index.html">
 <meta property="og:site_name" content="jiangwei的博客">
 <meta property="og:description" content="ChromeOptionsChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：  binary_location: 设置chrome二进制文件的位置  add_argument: 添加启动参数  add_extension,add_encoded_extension: 添加扩展应用  add_experimenta">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-25T09:21:51.000Z">
-<meta property="article:modified_time" content="2020-07-25T13:22:06.417Z">
+<meta property="article:modified_time" content="2020-07-27T13:22:59.567Z">
 <meta property="article:author" content="Jiang Wei">
 <meta name="twitter:card" content="summary">
   
@@ -57,13 +57,13 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/bloglmg/headphoto.jpg" class="js-avatar">
+			<img src="/assets/blogimg/headportrait.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Jiang Wei</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">爱学技术</p>
+		<p class="header-subtitle">一名爱学技术的大学生</p>
 		
 
 		<nav class="header-menu">
@@ -117,13 +117,13 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/bloglmg/headphoto.jpg" class="js-avatar">
+				<img src="/assets/blogimg/headportrait.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Jiang Wei</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>爱学技术<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>一名爱学技术的大学生<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -203,23 +203,17 @@ var _hmt = _hmt || [];
 </ul>
 <h1 id="定制启动选项"><a href="#定制启动选项" class="headerlink" title="定制启动选项"></a>定制启动选项</h1><p>ChromeOptions提供的方法中，我们最常用的是： <strong>add_argument,add_expermental_option,add_extension&amp;add_encoded_extension</strong></p>
 <h2 id="添加chrome启动参数"><a href="#添加chrome启动参数" class="headerlink" title="添加chrome启动参数"></a>添加chrome启动参数</h2><p>例如：</p>
-<pre><code>#启动时设置默认语言为中文 UTF-8
-from selenium import webdriver
-options = webdriver.ChromeOptions()
-options.add_argument(&apos;lan = zh_CN.UTF-8&apos;)
-driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</code></pre><p>最常用的应用场景是设置user-agent以用来模拟移动设备</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动时设置默认语言为中文 UTF-8</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">'lan = zh_CN.UTF-8'</span>)</span><br><span class="line">driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</span><br></pre></td></tr></table></figure>
+
+<p>最常用的应用场景是设置user-agent以用来模拟移动设备</p>
 <h2 id="修改chrome设置"><a href="#修改chrome设置" class="headerlink" title="修改chrome设置"></a>修改chrome设置</h2><p>例如：</p>
-<pre><code>#禁用图片加载
-from selenium import webdriver
-options = webdriver.ChromeOptions()
-options.add_expermental_option(&apos;perfs&apos;,{&apos;profile.default_content_settings.images&apos;: 2})
-driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</code></pre><p>更多实验参数可以访问<a href="https://sites.google.com/a/chromium.org/chromedriver/capabilities" target="_blank" rel="noopener">chromedriver官网</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#禁用图片加载</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_expermental_option(<span class="string">'perfs'</span>,&#123;<span class="string">'profile.default_content_settings.images'</span>: <span class="number">2</span>&#125;)</span><br><span class="line">driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</span><br></pre></td></tr></table></figure>
+
+<p>更多实验参数可以访问<a href="https://sites.google.com/a/chromium.org/chromedriver/capabilities" target="_blank" rel="noopener">chromedriver官网</a></p>
 <h2 id="添加扩展"><a href="#添加扩展" class="headerlink" title="添加扩展"></a>添加扩展</h2><p>例如：</p>
-<pre><code>from selenium import webdriver
-options = webdriver.ChromeOptions()
-extension_path = r&apos;/extension/path&apos;
-options.add_extension(extension_path)
-driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">extension_path = <span class="string">r'/extension/path'</span></span><br><span class="line">options.add_extension(extension_path)</span><br><span class="line">driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -298,7 +292,7 @@ driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = o
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://jiangwei-tan.github.io/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,6 +305,15 @@ driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = o
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/08/01/%E7%88%AC%E8%99%AB%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          爬虫模拟登录方法
+        
+      </div>
+    </a>
   
   
     <a href="/2020/07/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
