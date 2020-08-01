@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://jiangwei-Tan.github.io">
   <title>Selenium定制启动chromedriver | jiangwei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ChromeOptionsChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：  binary_location: 设置chrome二进制文件的位置  add_argument: 添加启动参数  add_extension,add_encoded_extension: 添加扩展应用  add_experimenta">
+  <meta name="description" content="ChromeOptionsChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：  binary_location: 设置chrome二进制文件的位置 add_argument: 添加启动参数 add_extension,add_encoded_extension: 添加扩展应用 add_experimental_o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Selenium定制启动chromedriver">
 <meta property="og:url" content="http://jiangwei-tan.github.io/2020/07/25/Selenium%E5%AE%9A%E5%88%B6%E5%90%AF%E5%8A%A8chromedriver/index.html">
 <meta property="og:site_name" content="jiangwei的博客">
-<meta property="og:description" content="ChromeOptionsChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：  binary_location: 设置chrome二进制文件的位置  add_argument: 添加启动参数  add_extension,add_encoded_extension: 添加扩展应用  add_experimenta">
+<meta property="og:description" content="ChromeOptionsChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：  binary_location: 设置chrome二进制文件的位置 add_argument: 添加启动参数 add_extension,add_encoded_extension: 添加扩展应用 add_experimental_o">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-25T09:21:51.000Z">
-<meta property="article:modified_time" content="2020-07-27T13:22:59.567Z">
+<meta property="article:modified_time" content="2020-08-01T11:58:37.948Z">
 <meta property="article:author" content="Jiang Wei">
 <meta name="twitter:card" content="summary">
   
@@ -190,17 +190,14 @@ var _hmt = _hmt || [];
       
         <h1 id="ChromeOptions"><a href="#ChromeOptions" class="headerlink" title="ChromeOptions"></a>ChromeOptions</h1><p>ChromeOptions是一个方便控制chrome启动的类。通过selenium的源码，ChromeOptions有以下几种主要方法：</p>
 <ul>
-<li><p>binary_location: 设置chrome二进制文件的位置</p>
-</li>
-<li><p>add_argument: 添加启动参数</p>
-</li>
-<li><p>add_extension,add_encoded_extension: 添加扩展应用</p>
-</li>
-<li><p>add_experimental_option: 添加实验性质的设置参数</p>
-</li>
-<li><p>debugger_address: 设置调试器的位置</p>
-</li>
+<li>binary_location: 设置chrome二进制文件的位置</li>
+<li>add_argument: 添加启动参数</li>
+<li>add_extension,add_encoded_extension: 添加扩展应用</li>
+<li>add_experimental_option: 添加实验性质的设置参数</li>
+<li>debugger_address: 设置调试器的位置</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="定制启动选项"><a href="#定制启动选项" class="headerlink" title="定制启动选项"></a>定制启动选项</h1><p>ChromeOptions提供的方法中，我们最常用的是： <strong>add_argument,add_expermental_option,add_extension&amp;add_encoded_extension</strong></p>
 <h2 id="添加chrome启动参数"><a href="#添加chrome启动参数" class="headerlink" title="添加chrome启动参数"></a>添加chrome启动参数</h2><p>例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动时设置默认语言为中文 UTF-8</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">'lan = zh_CN.UTF-8'</span>)</span><br><span class="line">driver = webdriver.Chrome(executable_path = chromedriver_path,chrome_options = options)</span><br></pre></td></tr></table></figure>
